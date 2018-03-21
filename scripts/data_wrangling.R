@@ -11,5 +11,5 @@ bcfa_tidy <-
 
 #  Now, we spread data in FA
 bcfa_spread <- bcfa_tidy %>% 
-#  select(-temp_id) %>% 
-  spread(FA, content)#, -temp_id, -Year) #, -Year, -temp_id)
+  spread(FA, content) %>% 
+  select(-temp_id)
