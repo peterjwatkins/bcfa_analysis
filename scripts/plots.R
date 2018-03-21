@@ -89,5 +89,39 @@ bcfa_tidy %>%
   select(-temp_id, -Year) %>% 
   ggplot(aes(x=FA)) + 
   geom_density() 
-## 
+## this does, to a point but I'll stop here, and try later
+## need to learn more on the commands
 
+## Now, to do scatterplots...
+
+## In this case, easier to spread the data, to it's original form...
+## Now, assumes that bcfa_spread is present but could also use original 'bcfa' data
+## assuming that it's a tibble
+
+bcfa_spread %>% 
+  ggplot(aes(x=MOA, y=MNA)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +  
+  facet_wrap(~Year)
+
+bcfa_spread %>% 
+  ggplot(aes(x=MOA, y=`C17.0`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +  
+  facet_wrap(~Year)
+
+bcfa_spread %>%
+  ggplot(aes(x=EOA, y=`C17.0`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +  
+  facet_wrap(~Year)
+
+bcfa_spread %>%
+  ggplot(aes(x=MNA, y=`C17.0`), color="Year") +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +  
+  facet_wrap(~Year)
