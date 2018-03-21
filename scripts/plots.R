@@ -57,3 +57,20 @@ p3 <- ggplot(bcfa, aes(x = MNA, y= C17.0, color=as.factor(Year))) +
 source("scripts/multiplot.R")
 
 multiplot(p1,p2,p3,cols=3)
+
+
+#--------------------------------------------------------------------------------
+# March 22, 2018
+
+# Try different approach - make no assumptions
+
+# Will use tidy approach
+# this assumes that 'data_wrangling.R' has been run
+# 'tidyverse' has been loaded and 'bcfa_tidy' is available
+
+ggplot(bcfa_tidy, aes(x=FA, y=content)) +
+  geom_point() +
+  scale_y_log10() +
+  facet_wrap(~Year)
+  
+  
