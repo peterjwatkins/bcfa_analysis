@@ -73,4 +73,21 @@ ggplot(bcfa_tidy, aes(x=FA, y=content)) +
   scale_y_log10() +
   facet_wrap(~Year)
   
-  
+ggplot(bcfa_tidy, aes(x=FA, y=content)) +
+  geom_boxplot() +
+  scale_y_log10() +
+  facet_wrap(~Year)
+
+
+## Out of interest, will plot the density plots for data
+ggplot(bcfa_tidy, aes(x=FA, y=content)) +
+  geom_density() +
+  facet_wrap(~Year)
+#.... and this code doesn't work :-)
+
+bcfa_tidy %>% 
+  select(-temp_id, -Year) %>% 
+  ggplot(aes(x=FA)) + 
+  geom_density() 
+## 
+
