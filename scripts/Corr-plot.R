@@ -46,15 +46,13 @@ bcfa.cor <- bcfa %>%
 bcfa_cor <- 
   bcfa %>% 
   mutate_at(vars(-Year), log10) %>% 
-  filter(Year == 2014) %>% 
+  filter(Year == 2011) %>% 
   select(-Year) %>% 
 #  group_by(Year) %>% 
   do(cor = cor(.[,1:4])) %>% 
-  broom::tidy(cor)
-%>% 
-  ggcorrplot()
-
-rownames(bcfa_cor) <- bcfa_cor[,1] ; bcfa_cor <- bcfa_cor[,-1]
-bcfa_cor <- round(bcfa_cor, 3)
-ggcorrplot(bcfa_cor, type="upper",
-           lab=TRUE)
+  broom::tidy(cor) %>%
+#  do(rownames = .rownames)
+  select(-.rownames) #%>% 
+#  ggcorrplot(type="lower") ,
+#             lab=TRUE)
+ 
