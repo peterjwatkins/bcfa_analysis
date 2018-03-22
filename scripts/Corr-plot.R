@@ -51,6 +51,8 @@ bcfa_cor <-
 #  group_by(Year) %>% 
   do(cor = cor(.[,1:4])) %>% 
   broom::tidy(cor) %>%
+  tibble::column_to_rownames()
+
 #  do(rownames = .rownames)
   select(-.rownames) #%>% 
 #  ggcorrplot(type="lower") ,
