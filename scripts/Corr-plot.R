@@ -48,13 +48,6 @@ bcfa_cor <-
   mutate_at(vars(-Year), log10) %>% 
   filter(Year == 2011) %>% 
   select(-Year) %>% 
-#  group_by(Year) %>% 
   do(cor = cor(.[,1:4])) %>% 
   broom::tidy(cor) %>%
   tibble::column_to_rownames()
-
-#  do(rownames = .rownames)
-  select(-.rownames) #%>% 
-#  ggcorrplot(type="lower") ,
-#             lab=TRUE)
- 
