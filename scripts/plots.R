@@ -145,3 +145,10 @@ bcfa_tidy %>%
   scale_x_log10() +
   scale_y_log10() +  
   facet_wrap(~Year)
+
+#----------------------------------------
+## Just found
+## http://www.sthda.com/english/rpkgs/ggpubr/reference/ggscatter.html
+## Can also try for scatterplots!
+
+
