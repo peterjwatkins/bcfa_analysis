@@ -120,7 +120,27 @@ bcfa_spread %>%
   facet_wrap(~Year)
 
 bcfa_spread %>%
-  ggplot(aes(x=MNA, y=`C17.0`), color="Year") +
+  ggplot(aes(x=MNA, y=`C17.0`)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() +  
+  facet_wrap(~Year)
+
+## Changed 'Year' into factor
+## new data: bcfa_yr_factor
+bcfa_yr_factor %>%
+  ggplot(aes(x=MOA, y=MNA)) + #, shape="Year")) + #, color="Year") +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10() 
+## This is not plotting any data!!!!!!
+
+
+bcfa_tidy %>% 
+  spread(FA, content) %>% 
+  select(-temp_id) %>% 
+#  mutate(Year = as.factor(Year)) %>% 
+  ggplot(aes(x=MOA, y=MNA)) +
   geom_point() +
   scale_x_log10() +
   scale_y_log10() +  
